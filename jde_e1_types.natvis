@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="tagJDEDATE">
+		<DisplayString>{nMonth,d}/{nDay,d}/{nYear,d}</DisplayString>
+	</Type>
+	<Type Name="tagMATH_NUMERIC">
+    <DisplayString Condition="nLength == 0">0</DisplayString>
+    <DisplayString Condition="nLength - nDecimalPosition == 0 &amp;&amp; nDecimalPosition &gt; 0 &amp;&amp; Sign == 45">-0.{String,sb}</DisplayString>
+    <DisplayString Condition="nLength - nDecimalPosition == 0 &amp;&amp; nDecimalPosition &gt; 0 &amp;&amp; Sign == 0">0.{String,sb}</DisplayString>
+    <DisplayString Condition="nLength &gt; nDecimalPosition &amp;&amp; nDecimalPosition &gt; 0 &amp;&amp; Sign == 45">-{String,[nLength-nDecimalPosition]sb}.{String + (nLength-nDecimalPosition),sb}</DisplayString>
+    <DisplayString Condition="nLength &gt; nDecimalPosition &amp;&amp; nDecimalPosition &gt; 0 &amp;&amp; Sign == 0">{String,[nLength-nDecimalPosition]sb}.{String + (nLength-nDecimalPosition),sb}</DisplayString>
+    <DisplayString Condition="nLength &gt; nDecimalPosition &amp;&amp; nDecimalPosition == 0 &amp;&amp; Sign == 45">-{String,sb}</DisplayString>
+    <DisplayString Condition="nLength &gt; nDecimalPosition &amp;&amp; nDecimalPosition == 0 &amp;&amp; Sign == 0">{String,sb}</DisplayString>
+    <DisplayString>{{Sign={Sign,c} String={String,s} nDecimalPosition={nDecimalPosition,d}}}</DisplayString>
+  </Type>
+</AutoVisualizer>
